@@ -28,30 +28,36 @@ class Donatechurch extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Your Phone number',
-              ),
-            ),
+            child: Obx(() => TextFormField(
+                  decoration:  InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: homectl.lang.toString() == 'ENG'
+                        ? 'Phonenumber'
+                        : 'Numero Yawe',
+                  ),
+                )),
+          ),
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            child: Obx(() => TextFormField(
+                  decoration:  InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: homectl.lang.toString() == 'ENG'
+                        ? 'Email'
+                        : 'Emeli Yawe',
+                  ),
+                )),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Your Email',
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Amount to Donate',
-              ),
-            ),
+            child: Obx(() => TextFormField(
+                  decoration:  InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: homectl.lang.toString() == 'ENG'
+                        ? 'Amount to Donate'
+                        : 'Umubare wa mafaranga',
+                  ),
+                )),
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
@@ -71,7 +77,7 @@ class Donatechurch extends StatelessWidget {
                     textStyle: const TextStyle(fontSize: 15),
                   ),
                   onPressed: () {},
-                  child: const Text('Donate '),
+                  child: Text('Donate '),
                 ),
               ],
             ),

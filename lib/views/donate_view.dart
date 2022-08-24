@@ -72,7 +72,7 @@ class Donate extends StatelessWidget {
                       primary: Colors.white,
                       textStyle: const TextStyle(fontSize: 15),
                     ),
-                    child: const Text('Donate to church'),
+                    child: const Text('Donate for building'),
                   ),
                 ],
               ),

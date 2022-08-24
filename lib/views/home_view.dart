@@ -52,47 +52,20 @@ class WelcomePage extends StatelessWidget {
                             fontSize: 20, fontWeight: FontWeight.bold),
                       )
                     : const Text(
-                        ' Ikinyarwanda ',
+                        ' " Ntimukibagirwe kugira neza no gusangira ibyo mufite, kuko bene ibyo ari byo bitambo bishimisha Imana. " ',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       )),
               ))),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(40),
-            child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.indigo,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Donatechange()));
-                    // Get.to(nextView())
-                  },
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(16.0),
-                    primary: Colors.white,
-                    textStyle: const TextStyle(fontSize: 15),
-                  ),
-                  child: const Text('Donate for Charity'),
-                ),
-              ],
-            ),
-          ),
           const SizedBox(height: 40),
           ClipRRect(
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(0),
             child: Stack(
               children: <Widget>[
                 Positioned.fill(
                   child: Container(
+                      padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.4),
                     decoration: const BoxDecoration(
                       color: Colors.indigo,
                     ),
@@ -109,7 +82,7 @@ class WelcomePage extends StatelessWidget {
                     primary: Colors.white,
                     textStyle: const TextStyle(fontSize: 15),
                   ),
-                  child: const Text('Donate to church'),
+                  child: const Text('Donate '),
                 ),
               ],
             ),

@@ -1,52 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:bchurch/controllers/home_controller.dart';
+
 
 class Donatechange extends StatelessWidget {
   const Donatechange({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+ var homectl = Get.put(HomeController());    return Scaffold(
       appBar: AppBar(
         title: Text('Donate here'),
       ),
       body: SafeArea(child: Column(
         children: [
-          Padding(
+            Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Your fullname',
-              ),
-            ),
+            child: Obx(() => TextFormField(
+                  decoration:  InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: homectl.lang.toString() == 'ENG'
+                        ? 'Your fullname'
+                        : 'Amazina Yawe',
+                  ),
+                )),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Your Phone number',
-              ),
-            ),
+            child: Obx(() => TextFormField(
+                  decoration:  InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: homectl.lang.toString() == 'ENG'
+                        ? 'Phonenumber'
+                        : 'Numero Yawe',
+                  ),
+                )),
           ),
-          Padding(
+            Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Your Email',
-              ),
-            ),
+            child: Obx(() => TextFormField(
+                  decoration:  InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: homectl.lang.toString() == 'ENG'
+                        ? 'Email'
+                        : 'Emeli Yawe',
+                  ),
+                )),
           ),
-          Padding(
+           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Amount to Donate',
-              ),
-            ),
+            child: Obx(() => TextFormField(
+                  decoration:  InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: homectl.lang.toString() == 'ENG'
+                        ? 'Amount to Donate'
+                        : 'Umubare wa mafaranga',
+                  ),
+                )),
           ),
          ClipRRect(
           borderRadius: BorderRadius.circular(10),
