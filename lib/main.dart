@@ -16,12 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final SplashController spl = Get.put(SplashController());
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Ochurch',
+      // locale: Locale('fr','en'),
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       debugShowCheckedModeBanner: false,
-      home: Obx(() => spl.splash == true ? SplachScreen() : WelcomePage()),
+      home: Obx(() => spl.splash == true ? SplashScreen() : WelcomePage()),
     );
   }
 }

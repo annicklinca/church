@@ -1,10 +1,9 @@
-import 'package:bchurch/views/donatechange_view.dart';
 import 'package:flutter/material.dart';
 import 'package:bchurch/views/donatechurch_view.dart';
-import 'package:bchurch/views/donate_view.dart';
+import 'package:bchurch/views/donatechange_view.dart';
 
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+class Donate extends StatelessWidget {
+  const Donate({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +19,13 @@ class WelcomePage extends StatelessWidget {
               child: Container(
                   child: const Padding(padding: EdgeInsets.fromLTRB(20, 150, 20, 0),
                     child: Text(
-                      ' "Do not Forget to do good and to share with others.for with such sacrifices God is pleased."\n\n Hebrews 13:6. ',
+                      ' " Ochurch is all open to anyone with their Donation. Fill free to give to God he will bless doubly. "',
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ))),
             ClipRRect(
-              borderRadius: BorderRadius.circular(40),
+              
+              borderRadius: BorderRadius.circular(100),
               child: Stack(
                 children: <Widget>[
                   Positioned.fill(
@@ -52,7 +52,7 @@ class WelcomePage extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             ClipRRect(
-              borderRadius: BorderRadius.circular(40),
+              borderRadius: BorderRadius.circular(100),
               child: Stack(
                 children: <Widget>[
                   Positioned.fill(
@@ -64,7 +64,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Donate()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Donatechurch()));
                       // Get.to(nextView())
                     },
                     style: TextButton.styleFrom(
@@ -73,6 +73,33 @@ class WelcomePage extends StatelessWidget {
                       textStyle: const TextStyle(fontSize: 15),
                     ),
                     child: const Text('Donate to church'),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 40),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Stack(
+                children: <Widget>[
+                  Positioned.fill(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                      color: Colors.indigo,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Donatechurch()));
+                      // Get.to(nextView())
+                    },
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(16.0),
+                      primary: Colors.white,
+                      textStyle: const TextStyle(fontSize: 15),
+                    ),
+                    child: const Text('Send Your Tithe'),
                   ),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Donatechange extends StatelessWidget {
   const Donatechange({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class Donatechange extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Donate To Change'),
+        title: Text('Donate here'),
       ),
       body: SafeArea(child: Column(
         children: [
@@ -43,39 +44,33 @@ class Donatechange extends StatelessWidget {
             child: TextFormField(
               decoration: const InputDecoration(
                 border: UnderlineInputBorder(),
-                labelText: 'Amount to donate',
+                labelText: 'Amount to Donate',
               ),
             ),
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(100),
-            child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: <Color>[
-                          Color(0xFF0D47A1),
-                          Color(0xFF1976D2),
-                          Color(0xFF42A5F5),
-                        ],
-                      ),
-                    ),
+         ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Stack(
+            children: <Widget>[
+              Positioned.fill(
+                child: Container(
+                  decoration: const BoxDecoration(
+                  color: Colors.indigo,
                   ),
                 ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(16.0),
-                    primary: Colors.white,
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  onPressed: () {},
-                  child: const Text('Donate Now'),
+              ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.fromLTRB(80, 20, 80, 20),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 15),
                 ),
-              ],
-            ),
+                onPressed: () {},
+                child: const Text('Donate '),
+              ),
+            ],
           ),
+        ),
         ],
       )),);
   }
