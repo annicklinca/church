@@ -11,6 +11,9 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Ochurch'),
+        actions:[
+         
+        ]
       ),
       body:
       SafeArea(

@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SplashController spl = Get.put(SplashController());
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Ochurch',
       // locale: Locale('fr','en'),
       theme: ThemeData(
