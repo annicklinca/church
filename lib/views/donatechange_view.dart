@@ -1,23 +1,27 @@
+import 'package:bchurch/controllers/donate_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:bchurch/controllers/home_controller.dart';
-
 
 class Donatechange extends StatelessWidget {
   const Donatechange({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
- var homectl = Get.put(HomeController());    return Scaffold(
+    var homectl = Get.put(HomeController());
+    var donatectl = Get.put(DonateController());
+    return Scaffold(
       appBar: AppBar(
         title: Text('Donate here'),
       ),
-      body: SafeArea(child: Column(
+      body: SafeArea(
+          child: Column(
         children: [
-            Padding(
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: Obx(() => TextFormField(
-                  decoration:  InputDecoration(
+                  controller: donatectl.nameController,
+                  decoration: InputDecoration(
                     border: UnderlineInputBorder(),
                     labelText: homectl.lang.toString() == 'ENG'
                         ? 'Your fullname'
@@ -28,7 +32,8 @@ class Donatechange extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: Obx(() => TextFormField(
-                  decoration:  InputDecoration(
+                  controller: donatectl.phoneController,
+                  decoration: InputDecoration(
                     border: UnderlineInputBorder(),
                     labelText: homectl.lang.toString() == 'ENG'
                         ? 'Phonenumber'
@@ -36,10 +41,11 @@ class Donatechange extends StatelessWidget {
                   ),
                 )),
           ),
-            Padding(
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: Obx(() => TextFormField(
-                  decoration:  InputDecoration(
+                  controller: donatectl.emailController,
+                  decoration: InputDecoration(
                     border: UnderlineInputBorder(),
                     labelText: homectl.lang.toString() == 'ENG'
                         ? 'Email'
@@ -47,10 +53,11 @@ class Donatechange extends StatelessWidget {
                   ),
                 )),
           ),
-           Padding(
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             child: Obx(() => TextFormField(
-                  decoration:  InputDecoration(
+                  controller: donatectl.amountController,
+                  decoration: InputDecoration(
                     border: UnderlineInputBorder(),
                     labelText: homectl.lang.toString() == 'ENG'
                         ? 'Amount to Donate'
@@ -58,30 +65,35 @@ class Donatechange extends StatelessWidget {
                   ),
                 )),
           ),
-         ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Stack(
-            children: <Widget>[
-              Positioned.fill(
-                child: Container(
-                  decoration: const BoxDecoration(
-                  color: Colors.indigo,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Stack(
+              children: <Widget>[
+                Positioned.fill(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.indigo,
+                    ),
                   ),
                 ),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.fromLTRB(80, 20, 80, 20),
-                  primary: Colors.white,
-                  textStyle: const TextStyle(fontSize: 15),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.fromLTRB(80, 20, 80, 20),
+                    primary: Colors.white,
+                    textStyle: const TextStyle(fontSize: 15),
+                  ),
+                  onPressed: () {
+                    donatectl.donateNow();
+                  },
+                  child: Obx(() => donatectl.loading.toString() == 'true'
+                      ? const Text('donating.... ')
+                      : const Text('Donate ')),
                 ),
-                onPressed: () {},
-                child: const Text('Donate '),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
         ],
-      )),);
+      )),
+    );
   }
 }
