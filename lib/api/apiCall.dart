@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class CallAPi {
-  final url = 'http://127.0.0.1:8000/api/';
+  final url = 'https://churchendpoint-production.up.railway.app/api/';
   postData(data, apiUrl) async {
     var fullUrl = url + apiUrl;
     var response =

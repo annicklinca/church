@@ -8,6 +8,7 @@ import '../api/apiCall.dart';
 class DonateController extends GetxController {
   var loading = false.obs;
   var message = ''.obs;
+  var valuePayment = 'MTN Mobile Money'.obs;
   late TextEditingController nameController,
       emailController,
       amountController,
@@ -22,6 +23,9 @@ class DonateController extends GetxController {
     phoneController = TextEditingController();
   }
 
+void changeValue(String? value) {
+  valuePayment.value=value.toString();
+}
   void donateNow() async {
     loading.value = true;
     if (emailController.text.isEmpty || phoneController.text.isEmpty) {
@@ -37,6 +41,7 @@ class DonateController extends GetxController {
         "name": nameController.text,
         "location": "Kigali",
         "phone": phoneController.text,
+        "paymentway":valuePayment.toString(),
         "amount": amountController.text
       };
 
@@ -47,7 +52,7 @@ class DonateController extends GetxController {
         loading.value = false;
          Get.snackbar(
           'Success',
-          res['response']['message'].toString(),
+          valuePayment.toString()=='MTN Mobile Money'? res['response']['message'].toString():"You have successful donated ",
           backgroundColor: const Color(0xff37C459),
         );
       } else {

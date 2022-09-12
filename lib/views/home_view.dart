@@ -82,7 +82,17 @@ class WelcomePage extends StatelessWidget {
                     primary: Colors.white,
                     textStyle: const TextStyle(fontSize: 15),
                   ),
-                  child: const Text('Donate '),
+                      child: Obx(() => homeCtr.lang == 'ENG'
+                    ? const Text(
+                        ' Donate',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
+                      )
+                    : const Text(
+                        ' Tura',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
+                      )),
                 ),
               ],
             ),

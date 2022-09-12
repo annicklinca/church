@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Ochurch',
       // locale: Locale('fr','en'),
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
       home: Obx(() => spl.splash == true ? SplashScreen() : WelcomePage()),

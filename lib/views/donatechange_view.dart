@@ -10,6 +10,7 @@ class Donatechange extends StatelessWidget {
   Widget build(BuildContext context) {
     var homectl = Get.put(HomeController());
     var donatectl = Get.put(DonateController());
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Donate here'),
@@ -65,31 +66,57 @@ class Donatechange extends StatelessWidget {
                   ),
                 )),
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.indigo,
+           Center(
+             child: Obx(() => DropdownButtonFormField(
+              decoration: InputDecoration(
+              border: UnderlineInputBorder(),
+              filled: true,
+              fillColor: Colors.white,
+              ),
+              value:donatectl.valuePayment.toString(),
+              dropdownColor: Colors.white,
+            items: <String>['MTN Mobile Money', 'Airtel Money', 'Credit Card'].map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                 value: value,
+                 child: Text(
+                  value,
+                 style: TextStyle(fontSize: 15),
+      ),
+    );
+  }).toList(), onChanged: (String? value) { 
+        donatectl.changeValue(value.toString());
+   },
+)), 
+           ),
+           
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Stack(
+                children: <Widget>[
+                  Positioned.fill(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.indigo,
+                      ),
                     ),
                   ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(80, 20, 80, 20),
-                    primary: Colors.white,
-                    textStyle: const TextStyle(fontSize: 15),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.fromLTRB(80, 20, 80, 20),
+                      primary: Colors.white,
+                      textStyle: const TextStyle(fontSize: 15),
+                    ),
+                    onPressed: () {
+                      donatectl.donateNow();
+                    },
+                    child: Obx(() => donatectl.loading.toString() == 'true'
+                        ? const Text('donating.... ')
+                        : const Text('Donate ')),
                   ),
-                  onPressed: () {
-                    donatectl.donateNow();
-                  },
-                  child: Obx(() => donatectl.loading.toString() == 'true'
-                      ? const Text('donating.... ')
-                      : const Text('Donate ')),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
